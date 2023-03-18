@@ -71,8 +71,8 @@ export default function Sidebar() {
                 <Box w={'100%'} onClick={()=>{setActive(1);navigate('/home/')}}>
                 <NavItem navSize={navSize} icon={FiCoffee} title="Filtered" active={active==1?true:false} />
                 </Box>
-                <Box w={'100%'} onClick={()=>{setActive(2);navigate('/home/explore')}}>
-                <NavItem navSize={navSize} icon={FiUser} title="Explore" active={active==2?true:false}  />
+                <Box w={'100%'} onClick={()=>{setActive(2);navigate('/home/findmates')}}>
+                <NavItem navSize={navSize} icon={FiUser} title="Find Members" active={active==2?true:false}  />
                 </Box>
                 <Box w={'100%'} onClick={()=>setActive(3)}>
                 <NavItem navSize={navSize} icon={FiInbox} title="My Threads" active={active==3?true:false} />
