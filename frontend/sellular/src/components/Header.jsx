@@ -68,14 +68,14 @@ import { useNavigate } from "react-router-dom"
 
     <Spacer />
     <HStack spacing={3}>
-    <Button
+    {/* <Button
     color="#fff"
     rounded="md"
     bg="#3b49df"
     _hover={{ bg: "#323ebe" }}
     >
     Create a post
-    </Button>
+    </Button> */}
     <IconButton>
     <svg
     xmlns="http://www.w3.org/2000/svg"
