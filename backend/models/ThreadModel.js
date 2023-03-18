@@ -1,23 +1,19 @@
 const mongoose = require('mongoose');
 
-const EventSchema = mongoose.Schema({
-    event_name:{
+const ThreadSchema = mongoose.Schema({
+    title:{
         type:String,
         required:true
     },
-    event_img:{
+    status:{
         type:String,
         required:true
     },
-    event_location:{
+    field:{
         type:String,
         required:true
     },
-    event_mode:{
-        type:String,
-        required:true
-    },
-    event_theme:{
+    problem:{
         type:String,
         required:true
     },
@@ -25,29 +21,40 @@ const EventSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    event_prize:{
-        type:String,
-        required:true
-    },
-    event_timeline:[{
+    positions:[{
         type:String,
         required:true
     }],
-    event_status:{
+    responsibilities:{
         type:String,
         required:true
     },
-    organizer:{
-        type:mongoose.Types.ObjectId,
-        ref:'User',
+    mode:{
+        type:String,
         required:true
     },
-    event_applications:[{
+    location:{
+        type:String,
+        required:true
+    },
+    prize:{
+        type:String,
+        required:true,
+    },
+    additionalDetail:{
+        type:String
+    },
+    user_id:{
         type:mongoose.Types.ObjectId,
-        ref:'HackApplication',
+        ref:"User",
+        required:true
+    },
+    application_ids:[{
+        type:mongoose.Types.ObjectId,
+        ref:"Application",
         required:true
     }],
 
 })
 
-module.exports = mongoose.model('Events',EventSchema)
+module.exports = mongoose.model('Thread',ThreadSchema)

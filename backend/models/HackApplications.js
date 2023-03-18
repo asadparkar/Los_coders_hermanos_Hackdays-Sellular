@@ -6,6 +6,9 @@ const HackApplicationSchema = mongoose.Schema({
         ref:'Events',
         required:true
     },
+    team_name:{
+        type:String,
+    },
     applicant_id:{
         type:mongoose.Types.ObjectId,
         ref:'User',
@@ -22,7 +25,12 @@ const HackApplicationSchema = mongoose.Schema({
     application_status:{
         type:String,
         required:true
-    }
+    },
+    team_members:[{
+        type:mongoose.Types.ObjectId,
+        ref:'User',
+        required:true
+    }]
 })
 
 module.exports = mongoose.model('HackApplication',HackApplicationSchema)
