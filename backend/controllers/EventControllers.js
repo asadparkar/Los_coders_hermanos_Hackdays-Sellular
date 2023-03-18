@@ -23,4 +23,13 @@ const createEvent = (async(req,res)=>{
     }
 });
 
-module.exports = {createEvent}
+const showEvents = (async(req,res)=>{
+    try{
+        const events = await Event.find({});
+        res.status(200).json({events:events})
+    } catch (err){
+        console.log(err);
+        res.status(500).json({error:"An internal Error Occurred"})
+    }
+})
+module.exports = {createEvent,showEvents}
