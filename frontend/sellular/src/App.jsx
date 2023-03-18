@@ -6,6 +6,9 @@ import SignUp from './Pages/SignUp';
 import NotFound from './components/NotFound.jsx';
 import TimeLine from './components/TimeLine.jsx';
 import Home from './pages/Home';
+import ViewThread from './Pages/ViewThread';
+import Threads from './Pages/Threads';
+import ReposList from './pages/ReposList';
 
 function App() {
   return (
@@ -15,8 +18,10 @@ function App() {
       <Route path='/' element={<Login />} />
       <Route path='register' element={<SignUp />} />
       <Route path='home' element={<Home />}>
-
+        <Route path='' element={<Threads />} />
+        <Route path='thread/:id' element={<ViewThread />} />
       </Route>
+      <Route path='repos' element={<ReposList />} />
       <Route path='timeline' element={<TimeLine />} />
       <Route path='*' element={<NotFound />}/>
     </Routes>

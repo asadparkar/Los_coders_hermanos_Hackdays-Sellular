@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Box, Button, ButtonGroup } from '@chakra-ui/react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-// import Threads from './Threads';
+import Threads from './Threads';
 import Sidebar from '../components/Sidebar';
 import { Outlet } from "react-router-dom"
 const Home = () => {
