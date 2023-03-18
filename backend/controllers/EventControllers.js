@@ -108,4 +108,32 @@ const AcceptReject = (async(req,res)=>{
         res.status(200).json({error:"An unkown Error Occurred"})
     }
 })
-module.exports = {createEvent,showEvents,applyEvent,viewSeperateEvent,AcceptReject}
+const showMyPostedEvents = (async(req,res)=>{
+    try{
+        const {id} = req.body
+        const PostedEvents = await User.findById({_id:id}).populate('posted_events').select(['posted_events']);
+        if (!PostedEvents){
+            res.status(404).json({error:"Not found"});
+            return
+        }
+        res.status(200).json({postedEvents:PostedEvents})
+    } catch(error){
+        console.log(error);
+        res.status(500).json({error:"An Error Occurred"})
+    }
+})
+const showMyEventApplications = (async(req,res)=>{
+    try{
+        const {id} = req.body
+        const myEventApplications = await User.findById({_id:id}).populate('applied_events').select(['applied_events']);
+        if (!myEventApplications){
+            res.status(404).json({error:"Not found"});
+            return
+        }
+        res.status(200).json({myEventApplications:myEventApplications})
+    } catch (error){
+        console.log(error);
+        res.status(500).json({error:"An Error Occurred"}) 
+    }
+})
+module.exports = {createEvent,showEvents,applyEvent,viewSeperateEvent,AcceptReject,showMyPostedEvents,showMyEventApplications}
