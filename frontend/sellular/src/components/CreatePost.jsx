@@ -1,7 +1,7 @@
 import { FormDialog } from '@saas-ui/modals'
 import { Field, FormLayout } from '@saas-ui/forms'
 import { useDisclosure,FormControl,FormLabel,Input } from '@chakra-ui/react'
-import { Button } from '@chakra-ui/react'
+import { Button, Textarea } from '@chakra-ui/react'
 
 function CreatePost() {
     const disclosure = useDisclosure()
@@ -27,7 +27,7 @@ function CreatePost() {
                     </FormControl>
                     <FormControl>
                       <FormLabel htmlFor="email">Description</FormLabel>
-                      <Input onChange={(e)=>{e.preventDefault();}} id="email" type="textArea" size='lg'/>
+                      <Textarea placeholder='Here is a sample placeholder' />
                     </FormControl>
                     <FormControl>
                       <FormLabel >Start Date</FormLabel>

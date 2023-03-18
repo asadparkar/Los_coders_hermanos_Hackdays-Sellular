@@ -15,6 +15,7 @@ import Apply from './Pages/Apply';
 import TimeLine from './components/TimeLine';
 import CreatePost from './components/CreatePost';
 import { ModalsProvider } from '@saas-ui/modals'
+import CreateEvent from './components/CreateEvent';
 function App() {
 
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='thread/apply/:id' element={<Apply />} />
       </Route>
       <Route path='timeline' element={<TimeLine />} />
+      <Route path='create' element={<CreateEvent />} />
       <Route path='register' element={<SignUp />} />
       <Route path='*' element={<NotFound />}/>
     </Routes>
