@@ -77,7 +77,22 @@ const applyEvent = (async(req,res)=>{
     } catch{(err)=>{
         console.log(err);
         res.status(500).json({error:"An internal Error Occurred"})
-
     }}
 })
-module.exports = {createEvent,showEvents,applyEvent}
+const viewSeperateEvent = (async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const event = await Event.findById({_id:id}).populate('event_applications');
+        if (!event){
+            res.status(404).json({error:"Event/Hackathon not found :("})
+            return
+        }
+        res.status(200).json({event:event})
+    } catch ( error){
+        console.log(error);
+        res.status(500).json({error:'An unknown Error Occurred'})
+    }
+
+
+})
+module.exports = {createEvent,showEvents,applyEvent,viewSeperateEvent}
