@@ -18,6 +18,10 @@ const HackApplicationSchema = mongoose.Schema({
     why_join:{
         type:String,
         required:true
+    },
+    application_status:{
+        type:String,
+        required:true
     }
 })
 

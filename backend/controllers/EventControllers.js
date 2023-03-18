@@ -47,7 +47,7 @@ const showEvents = (async(req,res)=>{
 })
 const applyEvent = (async(req,res)=>{
     try{
-        const {event_id,applicant_id,join_type,why_join} = req.body;
+        const {event_id,applicant_id,join_type,why_join,application_status} = req.body;
         const eventExists = await Event.findById({_id:event_id});
         if (!eventExists){
             res.status(404).json({error:"No Hackathon found with this id"})
@@ -62,7 +62,8 @@ const applyEvent = (async(req,res)=>{
             event_id:event_id,
             applicant_id:applicant_id,
             join_type:join_type,
-            why_join:why_join
+            why_join:why_join,
+            application_status:application_status
         })
         const session = await mongoose.startSession();
         await session.startTransaction();;
@@ -77,7 +78,34 @@ const applyEvent = (async(req,res)=>{
     } catch{(err)=>{
         console.log(err);
         res.status(500).json({error:"An internal Error Occurred"})
-
     }}
 })
-module.exports = {createEvent,showEvents,applyEvent}
+const viewSeperateEvent = (async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const event = await Event.findById({_id:id}).populate('event_applications');
+        if (!event){
+            res.status(404).json({error:"Event/Hackathon not found :("})
+            return
+        }
+        res.status(200).json({event:event})
+    } catch ( error){
+        console.log(error);
+        res.status(500).json({error:'An unknown Error Occurred'})
+    }
+})
+const AcceptReject = (async(req,res)=>{
+    try{
+        const {id,payload} = req.body;
+        const isExistingHackApplication = await HackApplication.updateOne({_id:id},{application_status:payload})
+        if (!isExistingHackApplication){
+            res.status(404).json({error:"Application to this Hackathon not found"});
+            return;
+        }
+        res.status(200).json({message:"Application has been accepted/rejected!"})
+    } catch (error){
+        console.log(error)
+        res.status(200).json({error:"An unkown Error Occurred"})
+    }
+})
+module.exports = {createEvent,showEvents,applyEvent,viewSeperateEvent,AcceptReject}
