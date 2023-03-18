@@ -70,8 +70,8 @@ const User = () => {
 
 
    {users?.map((index)=>(
-    <Box bg={'white'} w={{base:'100%',sm:'80%'}} padding={'15px'} boxShadow='xl' borderWidth={'2px'}  borderRadius='15px' fontFamily='Poppins' marginTop={'15px'}>
-        <Box display={{md:'flex', sm:'column'}} justifyContent={{md:'flex-start', sm:'center'}} alignItems={'center'}>
+    <Box  bg={'white'} w="40%" padding={'15px'} boxShadow='xl' borderWidth={'2px'}  borderRadius='15px' fontFamily='Poppins' marginTop={'15px'}>
+        <Box display="flex" flexDirection={'column'} flexWrap="wrap" justifyContent={{md:'flex-start', sm:'center'}} alignItems={'center'}>
             <Box>
                 <Image boxShadow={'sm'} borderRadius='100%' w='120px' h='120px' src={profile_pics[Math.floor(Math.random() * profile_pics.length)]} alt='profile pic' />
             </Box>

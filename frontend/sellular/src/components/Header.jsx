@@ -17,6 +17,7 @@ import {
     MenuDivider,
     useColorModeValue
     } from "@chakra-ui/react"
+    import CreatePost from "./CreatePost"
 import { useNavigate } from "react-router-dom"
     //hello
     const IconButton = ({ children }) => {
@@ -74,8 +75,9 @@ import { useNavigate } from "react-router-dom"
     bg="#3b49df"
     _hover={{ bg: "#323ebe" }}
     >
-    Create Event
+    Host event
     </Button>
+    <CreatePost />
     <IconButton>
     <svg
     xmlns="http://www.w3.org/2000/svg"
