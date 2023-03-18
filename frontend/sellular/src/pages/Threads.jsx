@@ -5,8 +5,6 @@ import Thread from './Thread'
 import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 import { SettingsIcon } from '@chakra-ui/icons'
 
-
-
 const Threads = () => {
   // const [threads,setThreads] = useState();
   const threads = useRef();
@@ -66,8 +64,7 @@ const Threads = () => {
 
 
         <Box display={'flex'} justifyContent='center' flexDirection={'column'}>
-        <Thread title={posts.title} positions={posts.positions} name={posts.name} mode={item.mode} author='Asad Parkar' applicants={item.application_ids.length} id={item._id} />
-        {/* {!isThreadOpen && threads.current?.map((item)=>(
+        {!isThreadOpen && threads.current?.map((item)=>(
           <Box marginTop={'15px'}>
             <Thread title={item.title} status={item.status} positions={item.positions} name={item.user_id?.name} mode={item.mode} author='Asad Parkar' applicants={item.application_ids.length} id={item._id}  />
           </Box>
@@ -77,7 +74,7 @@ const Threads = () => {
           <Box marginTop={'15px'}>
             <Thread title={item.title} status={item.status} positions={item.positions} name={item.user_id?.name} mode={item.mode} author='Asad Parkar' applicants={item.application_ids.length} id={item._id}  />
           </Box>
-        ))} */}
+        ))}
         </Box>
 
         <Modal

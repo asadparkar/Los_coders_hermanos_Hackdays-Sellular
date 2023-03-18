@@ -3,9 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { FaLaptop,FaBiking,FaMapMarker,FaTrophy,FaUserFriends,FaUserAlt} from "react-icons/fa";
 import axios from 'axios';
-// import loading from '../assets/images/loading.png'
+import loading from '../assets/images/loading.png'
 import { decodeToken } from "react-jwt";
-
 
 const ViewThread = () => { 
     const token = localStorage.getItem('jwt')
