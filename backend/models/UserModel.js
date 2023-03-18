@@ -49,6 +49,16 @@ const UserSchema = mongoose.Schema({
             required:true
         }
     ],
+    posted_events:[{
+        type:mongoose.Types.ObjectId,
+        ref:"Events",
+        required:true
+    }],
+    applied_events:[{
+        type:mongoose.Types.ObjectId,
+        ref:'HackApplication',
+        required:true
+    }]
     // rejected:[{
     //     type:mongoose.Types.ObjectId
     // }],

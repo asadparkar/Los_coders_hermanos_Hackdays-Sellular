@@ -37,7 +37,12 @@ const EventSchema = mongoose.Schema({
         type:mongoose.Types.ObjectId,
         ref:'User',
         required:true
-    }
+    },
+    event_applications:[{
+        type:mongoose.Types.ObjectId,
+        ref:'HackApplication',
+        required:true
+    }]
 })
 
 module.exports = mongoose.model('Events',EventSchema)
