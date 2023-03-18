@@ -5,6 +5,10 @@ const EventSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    event_img:{
+        type:String,
+        required:true
+    },
     event_location:{
         type:String,
         required:true
@@ -42,7 +46,8 @@ const EventSchema = mongoose.Schema({
         type:mongoose.Types.ObjectId,
         ref:'HackApplication',
         required:true
-    }]
+    }],
+
 })
 
 module.exports = mongoose.model('Events',EventSchema)

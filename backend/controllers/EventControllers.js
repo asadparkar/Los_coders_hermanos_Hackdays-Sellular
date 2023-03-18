@@ -4,7 +4,7 @@ const HackApplication = require('../models/HackApplications');
 const User = require('../models/UserModel');
 
 const createEvent = (async(req,res)=>{
-    const {event_name,event_location,event_mode,event_theme,description,event_prize,event_timeline,event_status,organizer} = req.body;
+    const {event_name,event_img,event_location,event_mode,event_theme,description,event_prize,event_timeline,event_status,organizer} = req.body;
     const isOrganizer = await User.findById({_id:organizer});
     if (!isOrganizer){
         res.status(200).json({errpr:"User not found with this id"})
@@ -13,6 +13,7 @@ const createEvent = (async(req,res)=>{
     try{
         const event = new Event({
             event_name:event_name,
+            event_img:event_img,
             event_location:event_location,
             event_mode:event_mode,
             event_theme:event_theme,
@@ -47,7 +48,7 @@ const showEvents = (async(req,res)=>{
 })
 const applyEvent = (async(req,res)=>{
     try{
-        const {event_id,applicant_id,join_type,why_join,application_status} = req.body;
+        const {event_id,team_name,applicant_id,join_type,why_join,application_status} = req.body;
         const eventExists = await Event.findById({_id:event_id});
         if (!eventExists){
             res.status(404).json({error:"No Hackathon found with this id"})
@@ -60,13 +61,14 @@ const applyEvent = (async(req,res)=>{
         }
         const application = new HackApplication({
             event_id:event_id,
+            team_name:team_name,
             applicant_id:applicant_id,
             join_type:join_type,
             why_join:why_join,
-            application_status:application_status
+            application_status:application_status,
         })
         const session = await mongoose.startSession();
-        await session.startTransaction();;
+        session.startTransaction();
         await application.save({session});
         eventExists.event_applications.push(application);
         await eventExists.save({session});
@@ -136,4 +138,30 @@ const showMyEventApplications = (async(req,res)=>{
         res.status(500).json({error:"An Error Occurred"}) 
     }
 })
-module.exports = {createEvent,showEvents,applyEvent,viewSeperateEvent,AcceptReject,showMyPostedEvents,showMyEventApplications}
+const acceptedApplication = (async()=>{
+    try{
+        const {HackApplication_id} = req.body;
+        const hackApplication = await HackApplication.findById({_id:id}).populate('event_id');
+        if (!HackApplication){
+            res.status(404).json({error:"Application not found"});
+            return
+        }
+        res.json({accepted:hackApplication})
+    } catch(error){
+        console.log(error);
+        res.status(500).json({error:"An unkown Error Occurred"})
+    }
+})
+const addTeamMember = (async(req,res)=>{
+    const {email,application_id} = req.body;
+    const isUserExists = await User.findOne({email});
+    if (!isUserExists){
+        res.status(404).json({error:"No such user exists"});
+        return;
+    }
+    const hackApplication = await HackApplication.findById({_id:application_id});
+    hackApplication.team_members.push(isUserExists);
+    await hackApplication.save();
+    res.status(200).json({message:"User added to the Team"})
+})
+module.exports = {createEvent,showEvents,applyEvent,viewSeperateEvent,AcceptReject,showMyPostedEvents,showMyEventApplications,acceptedApplication,addTeamMember}
