@@ -50,7 +50,7 @@ import { useNavigate } from "react-router-dom"
     // bg={useColorModeValue("gray.100", "gray.700")}
     bg='#F5F7F7'
     width="100%"
-    zIndex="1"
+    zIndex="10"
     height='10%'
     display={'flex'}
     flexDirection='column'

@@ -16,12 +16,13 @@ const colors = {
 
 const theme = extendTheme({ colors })
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
     <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
-    </BrowserRouter>
+  </BrowserRouter>
   </React.StrictMode>,
 )
