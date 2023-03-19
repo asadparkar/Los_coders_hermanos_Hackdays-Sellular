@@ -55,7 +55,7 @@ const MyHackathons = () => {
         <Box display={'flex'} justifyContent='center' flexDirection={'column'}>
         {hackathons.current?.postedEvents.posted_events.length?hackathons.current?.postedEvents.posted_events.map((item)=>(
           <Box marginTop={'15px'}>
-            <Hackathon event_name={item.event_name} status={item.event_status} event_theme={item.event_theme} mode={item.event_mode} applicants={item.event_applications.length+1} my={true}/>
+            <Hackathon event_name={item.event_name} status={item.event_status} event_theme={item.event_theme} mode={item.event_mode} applicants={item.event_applications.length+1} my={true} id={item._id}/>
           </Box>
         )):<NoEvents />} 
         </Box>

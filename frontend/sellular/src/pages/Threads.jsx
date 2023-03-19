@@ -35,13 +35,13 @@ const Threads = () => {
         <Heading color={'black'} fontSize={{ base: 'xl', sm: '2xl' }} marginBottom='20px' marginLeft={'10px'}>
          All Opportunities
         </Heading>
-        <IconButton
+        {/* <IconButton
         onClick={onOpen}
         marginLeft={'auto'}
           colorScheme='blue'
           aria-label='Search database'
           icon={<SettingsIcon />}
-        />
+        /> */}
 
       </Box>
 
@@ -70,11 +70,11 @@ const Threads = () => {
           </Box>
         ))}
         
-        {isThreadOpen && threads?.current?.filter(threads=>threads.status.includes('open')).map((item)=>(
+        {/* {isThreadOpen && threads.current?.filter(threads=>threads.status.includes('open'))?.map((item)=>(
           <Box marginTop={'15px'}>
             <Thread title={item.title} status={item.status} event_theme = {item.event_theme} mode={item.event_mode} author='Asad Parkar' applicants={item.application_ids.length} id={item._id}  />
           </Box>
-        ))}
+        ))} */}
         </Box>
 
         <Modal

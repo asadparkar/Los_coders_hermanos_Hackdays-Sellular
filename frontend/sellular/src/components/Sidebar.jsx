@@ -77,12 +77,12 @@ export default function Sidebar() {
                 <Box w={'100%'} onClick={()=>{setActive(2);navigate('/home/findmates')}}>
                 <NavItem navSize={navSize} icon={FiUser} title="Find Members" active={active==2?true:false}  />
                 </Box>
-                <Box w={'100%'} onClick={()=>setActive(3)}>
+                {/* <Box w={'100%'} onClick={()=>setActive(3)}>
                 <NavItem navSize={navSize} icon={FiInbox} title="My Threads" active={active==3?true:false} />
-                </Box>
-                <Box w={'100%'} onClick={()=>setActive(4)}>
+                </Box> */}
+                {/* <Box w={'100%'} onClick={()=>setActive(4)}>
                 <NavItem navSize={navSize} icon={FiSend} title="Applications" active={active==4?true:false} />
-                </Box>
+                </Box> */}
                 <Box w={'100%'} onClick={()=>{setActive(5);navigate('/home/myHackathons')}}>
                 <NavItem navSize={navSize} icon={FiPackage} title="My Events" active={active==5?true:false} />
                 </Box>

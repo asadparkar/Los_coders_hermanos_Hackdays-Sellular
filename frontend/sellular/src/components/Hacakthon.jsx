@@ -37,7 +37,8 @@ const Hackathon = ({event_name,status,event_theme,mode,applicants,my=false,id}) 
                 </Box>
             <Text fontSize='lg' color='gray.500' fontWeight='bold' marginTop={'20px'}>Theme</Text>
 
-            <Box style={{border:'1px solid #BDCDD6', borderRadius:'5px', padding:'2px', width:'120px', textAlign:'center'}}>
+            <Box style={{border:'1px solid #BDCDD6', borderRadius:'5px', padding:'2px', width:'200px', textAlign:'center'}}>
+            
             <Text textAlign={'center'} fontSize='md' color='gray.500' fontWeight='medium'>{event_theme}</Text>
             </Box>
             </Box>

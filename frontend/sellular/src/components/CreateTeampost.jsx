@@ -8,8 +8,13 @@ import {
     Input,
     Select, Textarea,VStack,Stack,Button, useColorModeValue,
   } from '@chakra-ui/react';
+  import { decodeToken } from "react-jwt";
+
+import axios from 'axios';
   import { useState } from 'react';
   const CreateTeampost = () => {
+    const token = localStorage.getItem('jwt')
+    const decodedToken = decodeToken(token);
     const [title,setTitle] = useState('');
     const [domain,setDomain] = useState('');
     const [statement,setStatement] = useState('');
@@ -18,8 +23,29 @@ import {
     const [roleone,setRoleone] = useState('');
     const [roletwo,setRoletwo] = useState('');
     const [location,setLocation] = useState('');
-    const [mode,setMode] = useState('');
-
+    const [mode,setMode] = useState('online');
+    
+    const post = (async()=>{
+      return await axios.post('https://asadparkar.tech/devconnectb/api/thread/create',{
+        title:title,
+        status:'open',
+        field:domain,
+        problem:statement,
+        description:description,
+        positions:[roleone,roletwo],
+        responsibilities:Responsibilities,
+        mode:mode,
+        location:location,
+        prize:"Rs 50,000",
+        additionalDetail:'Additional Detail',
+        user_id:decodeToken(token).user_id
+      })
+    })
+    const handleSubmit = (()=>{
+      post().then((response)=>{
+        alert("Your Team Post has been Created!")
+      })
+    })
 
     return (
       <Container maxW="5xl" p={{ base: 5, md: 10 }}>
@@ -81,7 +107,7 @@ import {
             <FormLabel fontSize="0.75rem" fontWeight="bold">
               MODE
             </FormLabel>
-            <Select>
+            <Select onChange={(e)=>{setMode(e.target.value)}}>
               <option value="online">online</option>
               <option value="offline">offline</option>
               <option value="hybrid">hybrid</option>
@@ -97,6 +123,7 @@ import {
               }}
               rounded="md"
               w={{ base: '100%', md: 'max-content' }}
+              onClick={handleSubmit}
             >
               Submit
             </Button>
