@@ -17,7 +17,8 @@ import CreatePost from './components/CreatePost';
 import { ModalsProvider } from '@saas-ui/modals'
 import CreateEvent from './components/CreateEvent';
 import CreateTeampost from './components/CreateTeampost';
-
+import Hackathons from './pages/Hackathons';
+import MyHackathons from './pages/MyHackathons';
 function App() {
 
   return (
@@ -31,6 +32,9 @@ function App() {
         <Route path='thread/:id' element={<ViewThread />} />
         <Route path='thread/apply/:id' element={<Apply />} />
         <Route path='create' element={<CreateTeampost />} />
+        <Route path='hackathons' element={<Hackathons />} />
+        <Route path='myHackathons' element={<MyHackathons />} />
+
       </Route>
       <Route path='timeline' element={<TimeLine />} />
       <Route path='register' element={<SignUp />} />
