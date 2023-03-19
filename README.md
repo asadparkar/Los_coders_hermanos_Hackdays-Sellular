@@ -66,7 +66,9 @@ Organizers can efficiently plan, organize, and run successful hackathons with co
 ## Organizer Side
 
 ### Creating new Hackathon Event
-<img src="https://user-images.githubusercontent.com/113037145/226190117-7c7e0e05-04e7-4158-8514-462d316567da.png">
+![image](https://user-images.githubusercontent.com/113037145/226203414-35ae63a6-2f72-4018-8780-7ff739fb46a4.png)
+![image](https://user-images.githubusercontent.com/113037145/226203441-98fae1c5-040c-4fa8-b7bf-11f52e9e14fe.png)
+
 
 Once the user posts the hackathon event, the user can explore it in the Hackathon section.
 
