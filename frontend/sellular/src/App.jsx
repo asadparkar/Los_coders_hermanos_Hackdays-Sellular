@@ -40,7 +40,8 @@ function App() {
         <Route path='createevent' element={<CreateEvent />} />
         <Route path='hackathons' element={<Hackathons />} />
         <Route path='myHackathons' element={<MyHackathons />} />
-        <Route path='profile' element={<ViewProfile />} />
+        <Route path='myprofile' element={<ViewProfile />} />
+        <Route path='profile/:id' element={<ViewProfile />} />
         <Route path='event/:id' element={<ViewThread />} />
         <Route path='hackathon/:id' element={<ViewHackathon />} />
         <Route path='myAppliedHackathons' element={<AppliedHackathons />} />

@@ -121,15 +121,15 @@ import {Link as Linktwo} from "react-router-dom";
     >
     <MenuItem>
     <VStack justify="start" alignItems="left">
-    <Text fontWeight="500">Umam</Text>
-    <Text size="sm" color="gray.500" mt="0 !important">
+    <Text fontWeight="500">YOU</Text>
+    {/* <Text size="sm" color="gray.500" mt="0 !important">
     @u_khan
-    </Text>
+    </Text> */}
     </VStack>
     </MenuItem>
     <MenuDivider />
     <MenuItem>
-    <Linktwo to="/home/profile">
+    <Linktwo to="/home/myprofile">
     <Text fontWeight="500">My Dashboard</Text>
     </Linktwo>
     </MenuItem>
