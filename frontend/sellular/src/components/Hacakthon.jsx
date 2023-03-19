@@ -2,7 +2,7 @@ import { Avatar, Box, Button, Card, CardBody, CardFooter, CardHeader, Flex, Head
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Hackathon = ({event_name,status,event_theme,mode,applicants}) => {
+const Hackathon = ({event_name,status,event_theme,mode,applicants,my=false}) => {
     const navigate = useNavigate()
   return (
         <Card
@@ -50,7 +50,7 @@ const Hackathon = ({event_name,status,event_theme,mode,applicants}) => {
 
             <CardFooter>
             <Button onClick={()=>{navigate(`thread/${id}`)}} variant='solid' bgColor={'#3B49DF'} color='white' _hover={{bg:'#3E54AC'}}>
-                View Details
+                {my?'View Dashboard':'Apply'}
             </Button>
             </CardFooter>
 

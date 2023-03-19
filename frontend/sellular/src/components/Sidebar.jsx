@@ -18,7 +18,8 @@ import {
     FiCoffee,
     FiInbox,
     FiSend,
-    FiTarget
+    FiTarget,
+    FiPackage
 } from 'react-icons/fi'
 import { IoPawOutline } from 'react-icons/io5'
 import NavItem from './NavItem'
@@ -37,7 +38,7 @@ export default function Sidebar() {
             h="90vh"
             marginTop="0"
             boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.2)"
-            w={navSize == "small" ? "75px" : "200px"}
+            w={navSize == "small" ? "75px" : "240px"}
             flexDir="column"
             justifyContent="space-between"
             bgColor={'#F5F7F7'}
@@ -81,9 +82,9 @@ export default function Sidebar() {
                 <Box w={'100%'} onClick={()=>setActive(4)}>
                 <NavItem navSize={navSize} icon={FiSend} title="Applications" active={active==4?true:false} />
                 </Box>
-                {/* <Box w={'100%'} onClick={()=>setActive(5)}>
-                <NavItem navSize={navSize} icon={FiTarget} title="Registered" active={active==5?true:false} />
-                </Box> */}
+                <Box w={'100%'} onClick={()=>{setActive(5);navigate('/home/myHackathons')}}>
+                <NavItem navSize={navSize} icon={FiPackage} title="My Hackathons" active={active==5?true:false} />
+                </Box>
             </Flex>
 
         </Flex>
