@@ -75,7 +75,7 @@ import { useNavigate } from "react-router-dom"
     bg="#3b49df"
     _hover={{ bg: "#323ebe" }}
     >
-    Host event
+    Create event
     </Button>
     <CreatePost />
     <IconButton>
