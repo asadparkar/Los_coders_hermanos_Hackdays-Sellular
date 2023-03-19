@@ -14,8 +14,6 @@ Participants can also apply for certain position and the developer who wishes to
 Organizers can efficiently plan, organize, and run successful hackathons with comprehensive management tools and support.
 
 
-## How much we were able to implement in 2 days
-
 
 ## How to start the website
 
@@ -53,19 +51,9 @@ Organizers can efficiently plan, organize, and run successful hackathons with co
 
 <img src="https://user-images.githubusercontent.com/113037145/226199139-40b0cb07-a406-4348-b8bd-d78398108db6.png" width="650" height="400">
 
+*API for every feature we planned is ready for deployment.
   
-
-## Organiser Side
-
-### Creating new Hackathon Event
-<img src="https://user-images.githubusercontent.com/113037145/226190117-7c7e0e05-04e7-4158-8514-462d316567da.png" width="650" height="400">
-
-
-### Managing Applications for the Hackathon
-<img src="https://user-images.githubusercontent.com/113037145/226190213-ffac63dd-5316-498e-8499-e57f39726eff.png" width="650" height="400">
-
-
-## Participant Side
+## Creating an account
 
 ### SignupPage
 <img src="https://user-images.githubusercontent.com/113037145/226191167-9f35b71e-6668-4acb-a888-a549cc49ec1b.png" width="650" height="400">
@@ -74,6 +62,25 @@ Organizers can efficiently plan, organize, and run successful hackathons with co
 
 ### Login Page
 <img src="https://user-images.githubusercontent.com/113037145/226191277-78ee1382-e3c9-4ad9-bdde-f68828a9e83a.png" width="650" height="400">
+
+## Organiser Side
+
+### Creating new Hackathon Event
+<img src="https://user-images.githubusercontent.com/113037145/226190117-7c7e0e05-04e7-4158-8514-462d316567da.png" width="650" height="400">
+
+Once the user posts the hackathon event, the user can explore it in the Hackathon section.
+
+
+### Managing Applications for the Hackathon
+
+<img src="https://user-images.githubusercontent.com/113037145/226199934-81ce6228-8f8c-44f0-b4ef-ef07b5a65684.png" width="650" height="400">
+
+Organisers can reject or accept applications.
+
+
+## Participant Side
+
+
 
 ### Register to a Hackathon
 <img src="https://user-images.githubusercontent.com/113037145/226191392-8110d325-9141-4b4f-81fb-bed29a14b1f2.png" width="650" height="400">
@@ -106,6 +113,10 @@ The password has been encrypted.
 ### Accepted Applicants Database
 
 <img src="https://user-images.githubusercontent.com/113037145/226198573-f6083280-729e-413e-bd4d-36e87051389d.png" width="650" height="400">
+
+
+
+## How much we were able to implement in 2 days
 
 
 
