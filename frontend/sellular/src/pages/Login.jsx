@@ -126,7 +126,7 @@ export const Login = () => {
                   </Heading>
                   <HStack spacing="1" justify="center">
                     <Text color="muted">Don't have an account?</Text>
-                    <Link to="/register"><Button variant="link" colorScheme="purple">
+                    <Link to="/registertwo"><Button variant="link" colorScheme="purple">
                       Sign up
                     </Button>
                     </Link>
