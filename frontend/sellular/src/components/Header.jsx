@@ -119,11 +119,6 @@ import {Link as Linktwo} from "react-router-dom";
     borderColor={useColorModeValue("gray.700", "gray.100")}
     boxShadow="4px 4px 0"
     >
-    <Link
-    href="https://dev.to/m_ahmad"
-    _hover={{ textDecoration: "none" }}
-    isExternal
-    >
     <MenuItem>
     <VStack justify="start" alignItems="left">
     <Text fontWeight="500">Umam</Text>
@@ -132,16 +127,16 @@ import {Link as Linktwo} from "react-router-dom";
     </Text>
     </VStack>
     </MenuItem>
-    </Link>
     <MenuDivider />
     <MenuItem>
+    <Linktwo to="/home/profile">
     <Text fontWeight="500">My Dashboard</Text>
+    </Linktwo>
     </MenuItem>
     <MenuItem>
+    <Linktwo to="/home/createpost">
     <Text fontWeight="500">Create Post</Text>
-    </MenuItem>
-    <MenuItem>
-    <Text fontWeight="500">Settings</Text>
+    </Linktwo>
     </MenuItem>
     <MenuDivider />
     <MenuItem onClick={handleClick}>

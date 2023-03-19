@@ -83,7 +83,6 @@ const CreateTEvent = () => {
             </FormControl>
 
           </Stack>
-
           <FormControl id="subject">
             <FormLabel>Event Theme</FormLabel>
             <Input onChange={(e)=>{setEventTheme(e.target.value)}} type="text" placeholder="what's it about?" rounded="md" />
