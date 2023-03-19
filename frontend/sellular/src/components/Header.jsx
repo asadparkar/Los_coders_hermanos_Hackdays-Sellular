@@ -19,6 +19,7 @@ import {
     } from "@chakra-ui/react"
     import CreatePost from "./CreatePost"
 import { useNavigate } from "react-router-dom"
+import {Link as Linktwo} from "react-router-dom";
     //hello
     const IconButton = ({ children }) => {
     return (
@@ -60,15 +61,17 @@ import { useNavigate } from "react-router-dom"
     >
     <Container maxW="1580px" px={4} mx="auto">
     <HStack spacing={4}>
+    <Linktwo to="/home">
     <Image
     alt="DevConnect logo"
     h={'90px'}
     w='90px'
     src="https://cdn.discordapp.com/attachments/835850564771643402/1083983817733324820/mini_project_2_logo.png"
     />
-
+    </Linktwo>
     <Spacer />
     <HStack spacing={3}>
+    <Linktwo to="/home/createevent">
     <Button
     color="#fff"
     rounded="md"
@@ -77,7 +80,17 @@ import { useNavigate } from "react-router-dom"
     >
     Create event
     </Button>
-    <CreatePost />
+    </Linktwo>    
+    <Linktwo to="/home/createpost">
+    <Button
+    color="#fff"
+    rounded="md"
+    bg="#3b49df"
+    _hover={{ bg: "#323ebe" }}
+    >
+    Create new post
+    </Button>
+    </Linktwo>   
     <IconButton>
     <svg
     xmlns="http://www.w3.org/2000/svg"

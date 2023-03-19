@@ -6,7 +6,7 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Select, Textarea,VStack,Stack,Button, useColorModeValue,
+  Select, Textarea,VStack,Stack,Button, useColorModeValue, InputGroup, InputLeftAddon, InputRightElement,SimpleGrid
 } from '@chakra-ui/react';
 
 const CreateTEvent = () => {
@@ -36,6 +36,34 @@ const CreateTEvent = () => {
               <Input type="text" placeholder="where is it taking place?" rounded="md" />
             </FormControl>
           </Stack>
+          <FormControl >
+          <FormLabel
+            fontSize="sm"
+            fontWeight="bold"
+            color="gray.700"
+            _dark={{
+              color: 'gray.50',
+            }}>
+            Event logo image link
+          </FormLabel>
+          <InputGroup size="sm">
+            <InputLeftAddon
+              bg="gray.50"
+              _dark={{
+                bg: 'gray.800',
+              }}
+              color="gray.500"
+              rounded="md">
+              http://
+            </InputLeftAddon>
+            <Input
+              type="tel"
+              placeholder="www.example.com"
+              focusBorderColor="brand.400"
+              rounded="md"
+            />
+          </InputGroup>
+        </FormControl>
           <FormControl id="subject">
             <FormLabel>Event Theme</FormLabel>
             <Input type="text" placeholder="what's it about?" rounded="md" />
