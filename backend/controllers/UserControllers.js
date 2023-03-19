@@ -90,13 +90,13 @@ const ViewProfile = async(req,res) =>{
 }
 
 const ViewMyProfile = async(req,res)=>{
-    const loggedInUser = req.user.user_id
+    // const loggedInUser = req.user.user_id;
     try{
         const {id} = req.params;
-        if (loggedInUser!== id){
-            res.status(401).json({error:"You cannot view somebody's personal profile"});
-            return;
-        }
+        // if (loggedInUser!== id){
+        //     res.status(401).json({error:"You cannot view somebody's personal profile"});
+        //     return;
+        // }
         const existingUser = await User.findById({_id:id}).select(['-password']);
         if (!existingUser){
             res.status(404).json({error:"No user found"});
