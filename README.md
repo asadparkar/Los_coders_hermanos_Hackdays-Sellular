@@ -28,6 +28,7 @@ Frontend:
     • Redux 
     
 Backend:
+
     • node.js
     
     • express.js
