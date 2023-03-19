@@ -128,7 +128,7 @@ const User = () => {
                      )) }
      </Box>
       </Stack>
-      <LinkTwo to="/home/profile"><Button bg='#3B49DF' color={'white'} _hover={{bg:'#3E54AC'}} marginTop='20px'>View Profile</Button></LinkTwo>
+      <LinkTwo to="/home/myprofile"><Button bg='#3B49DF' color={'white'} _hover={{bg:'#3E54AC'}} marginTop='20px'>View Profile</Button></LinkTwo>
       {/* <Stack mt={8} direction={"row"} spacing={4}>
         <Button
           flex={1}
