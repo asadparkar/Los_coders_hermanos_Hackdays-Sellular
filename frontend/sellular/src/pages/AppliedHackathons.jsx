@@ -1,37 +1,40 @@
 import { Box, Button, FormControl, FormLabel, Heading, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Switch, Text, useDisclosure } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
-import Hackathon from '../components/Hacakthon';
+import Thread from './Thread'
 import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
-import { useJwt } from "react-jwt";
+import { SettingsIcon } from '@chakra-ui/icons'
+import { decodeToken } from "react-jwt";
+
+const AppliedHackathons = () => {
+  const token = localStorage.getItem('jwt')
+  const decodedToken = decodeToken(token);
+  const threads = useRef();
+  const [isLoading,setLoading] = useState(false);
+  const array = ["Web Developer", "App Developer"]
+  const getThreads = async()=>{
+    setLoading(true)
+    return await axios.post('https://asadparkar.tech/devconnectb/api/event/appliedevents',{
+        id:decodedToken.user_id
+    })
+  }
 
 
-const Hackathons = () => {
-    const hackathons = useRef();
-    const [isLoading,setLoading] = useState(false);
-    const {decodedToken} = useJwt(localStorage.getItem('jwt'))
-    const [rerender, setRerender] = useState(false);
-    const getHackathons = async()=>{
-        setLoading(true)
-        return await axios.get('https://asadparkar.tech/devconnectb/api/event/events');
-    }
-
-    useEffect(()=>{
-        if (!decodedToken){
-            setRerender(!rerender)
-            return
-        }
-        getHackathons().then((response)=>{
-        hackathons.current = response.data.events
-        setLoading(false)
-        });
-    },[rerender])
+  useEffect(()=>{
+    getThreads().then((response)=>{
+      threads.current = response.data.myEventApplications.applied_events
+      console.log(threads)
+      setLoading(false)
+    });
+  },[])
   return (
-    <Box padding={{base:1,sm:15}} bg='#F5F7F7' fontFamily={'Poppins'}>
-      <Box display={'flex'}>
+    <Box padding={{base:1,sm:15}} bg='#F5F7F7'>
+      <Box display={'flex'} justifyContent='center' alignItems={'center'}>
         <Heading color={'black'} fontSize={{ base: 'xl', sm: '2xl' }} marginBottom='20px' marginLeft={'10px'}>
-         All Hackathons
+         All Opportunities
         </Heading>
+
+
       </Box>
 
         {isLoading && <div style={{background:'#FFFFFF', padding:'30px', width:'90%', borderRadius:'20px', boxShadow:'5px 5px 15px gray', height:'350px'}}>
@@ -48,15 +51,21 @@ const Hackathons = () => {
           <Skeleton height={'45px'} w='10%' marginTop={'50px'} />
         </div>}
 
-        <Box display={'flex'} justifyContent='center' flexDirection={'column'}>
-        {hackathons.current?.map((item)=>(
-          <Box marginTop={'15px'}>
-            <Hackathon event_name={item.event_name} status={item.event_status} event_theme={item.event_theme} mode={item.event_mode} applicants={item.event_applications.length+1} my={item.organizer === decodedToken.user_id?true:false} id={item._id}/>
+
+
+
+
+        <Box display={'flex'} justifyContent='center' flexDirection={'column'} padding='15px'>
+        {threads.current?.map((item)=>(
+          <Box marginTop={'15px'} bg='#FFFFFF' padding={'10px'} boxShadow='xl' borderRadius={'10px'}>
+          
           </Box>
         ))}
+        
         </Box>
+
     </Box>
   )
 }
 
-export default Hackathons
+export default AppliedHackathons
