@@ -1,6 +1,22 @@
 # Los_coders_hermanos_Hackdays-Sellular
 This is a hackathon management system developed for Sellular Hackathon
 
+
+## Initial Plan
+Create a website that would allow organizers to create events, set up teams, and manage registrations.
+
+It would also allow participants to register for events, join teams, and submit their projects for judging.
+
+Participants can Easily form diverse and skilled teams for hackathon using team-building tools and collaborative platforms.
+
+Participants can also apply for certain position and the developer who wishes to work with that person can directly contact via email id or contact no provided by the user on the profile page.
+
+Organizers can efficiently plan, organize, and run successful hackathons with comprehensive management tools and support.
+
+
+## How much we were able to implement in 2 days
+
+
 ## How to start the website
 
 ### Frontend
@@ -19,6 +35,24 @@ This is a hackathon management system developed for Sellular Hackathon
     1. cd backend
     2. npm install
     3. npm run dev
+    
+    
+    
+## Code
+
+### Frontend
+
+<img src="https://user-images.githubusercontent.com/113037145/226199052-728b4d98-3c59-41ee-a959-17836a30b191.png" width="650" height="400">
+
+
+### Backend + Backend hosted
+
+<img src="https://user-images.githubusercontent.com/113037145/226199089-f130f88f-ea76-4b0c-b036-966966163431.png" width="650" height="400">
+
+### Postman API Testing
+
+<img src="https://user-images.githubusercontent.com/113037145/226199139-40b0cb07-a406-4348-b8bd-d78398108db6.png" width="650" height="400">
+
   
 
 ## Organiser Side
@@ -69,6 +103,9 @@ The password has been encrypted.
 
 <img src="https://user-images.githubusercontent.com/113037145/226198012-a7218d94-3695-4988-8738-058bdae613a4.png" width="650" height="400">
 
+### Accepted Applicants Database
+
+<img src="https://user-images.githubusercontent.com/113037145/226198573-f6083280-729e-413e-bd4d-36e87051389d.png" width="650" height="400">
 
 
 
