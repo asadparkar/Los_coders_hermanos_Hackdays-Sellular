@@ -18,8 +18,46 @@ import {
   FormHelperText,
   InputRightElement,
 } from '@chakra-ui/react';
-
+import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
+
+const [name,setName] = useState('');
+const [lastname,setLastName] = useState('');
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
+    const [skillone,setSetSkillOne] = useState('');
+    const [skilltwo,setSetSkillTwo] = useState('');
+    const [github,setGitHub] = useState('');
+    const [resume,setResume] = useState('');
+    const [college,setCollege] = useState('');
+    const [phone,setPhone] = useState('');
+    const [linkedin,setLinkedin] = useState('');
+    const [bio,setBio] = useState('');
+
+    const [loading,setLoading] = useState(false)
+    //FOR ERROR HANDLING
+    const [error_message,setErrorMessage] = useState('');
+    const [isError,setError] = useState(false)
+  
+    const handleSubmit = ()=>{
+      if (!name || !email || !password){
+        setError(true);
+        setErrorMessage('Please fill all required fields!')
+        return
+      }
+      setLoading(true)
+      axios.post('https://asadparkar.tech/devconnectb/api/user/signup',{
+        name:name,
+        email:email,
+        password:password
+      }).then((response)=>{
+        setLoading(false)
+      }).catch((error)=>{
+        setError(true);
+        setErrorMessage(error.response.data.error);
+        setLoading(false);
+      })
+    }
 
 const Form1 = () => {
   const [show, setShow] = React.useState(false);
@@ -34,21 +72,21 @@ const Form1 = () => {
           <FormLabel htmlFor="first-name" fontWeight={'normal'}>
             First name
           </FormLabel>
-          <Input id="first-name" placeholder="First name" />
+          <Input id="first-name" placeholder="First name" onChange={(e)=>{setName(e.target.value)}} />
         </FormControl>
 
         <FormControl>
           <FormLabel htmlFor="last-name" fontWeight={'normal'}>
             Last name
           </FormLabel>
-          <Input id="last-name" placeholder="First name" />
+          <Input id="last-name" placeholder="First name" onChange={(e)=>{setLastName(e.target.value)}} />
         </FormControl>
       </Flex>
       <FormControl mt="2%">
         <FormLabel htmlFor="email" fontWeight={'normal'}>
           Email address
         </FormLabel>
-        <Input id="email" type="email" />
+        <Input id="email" type="email" onChange={(e)=>{setEmail(e.target.value)}} />
         <FormHelperText>We'll never share your email.</FormHelperText>
       </FormControl>
 
@@ -61,6 +99,7 @@ const Form1 = () => {
             pr="4.5rem"
             type={show ? 'text' : 'password'}
             placeholder="Enter password"
+            onChange={(e)=>{setPassword(e.target.value)}}
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -79,33 +118,6 @@ const Form2 = () => {
       <Heading w="100%" textAlign={'center'} mb="2%" fontWeight="bold">
         User Skills
       </Heading>
-      {/* <FormControl as={GridItem} colSpan={[6, 3]}>
-        <FormLabel
-          htmlFor="country"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}>
-          Country / Region
-        </FormLabel>
-        <Select
-          id="country"
-          name="country"
-          autoComplete="country"
-          placeholder="Select option"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md">
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </Select>
-      </FormControl> */}
-
       <FormControl as={GridItem} colSpan={6}>
         <FormLabel
           htmlFor="street_address"
@@ -128,6 +140,7 @@ const Form2 = () => {
           size="sm"
           w="full"
           rounded="md"
+          onChange={(e)=>{setSetSkillOne(e.target.value)}}
         />
       </FormControl>
 
@@ -153,56 +166,7 @@ const Form2 = () => {
           size="sm"
           w="full"
           rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-        <FormLabel
-          htmlFor="state"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          Skills
-        </FormLabel>
-        <Input
-          type="text"
-          name="state"
-          id="state"
-          autoComplete="state"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-        <FormLabel
-          htmlFor="postal_code"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          Skills
-        </FormLabel>
-        <Input
-          type="text"
-          name="postal_code"
-          id="postal_code"
-          autoComplete="postal-code"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
+          onChange={(e)=>{setSetSkillTwo(e.target.value)}}
         />
       </FormControl>
     </>
@@ -241,6 +205,7 @@ const Form3 = () => {
               placeholder="www.example.com"
               focusBorderColor="brand.400"
               rounded="md"
+              onChange={(e)=>{setGithub(e.target.value)}}
             />
           </InputGroup>
         </FormControl>
@@ -269,6 +234,7 @@ const Form3 = () => {
               placeholder="www.example.com"
               focusBorderColor="brand.400"
               rounded="md"
+              onChange={(e)=>{setLinkedin(e.target.value)}}
             />
           </InputGroup>
         </FormControl>
@@ -297,6 +263,7 @@ const Form3 = () => {
               placeholder="www.example.com"
               focusBorderColor="brand.400"
               rounded="md"
+              onChange={(e)=>{setResume(e.target.value)}}
             />
           </InputGroup>
         </FormControl>
@@ -318,6 +285,7 @@ const Form3 = () => {
             fontSize={{
               sm: 'sm',
             }}
+            onChange={(e)=>{setBio(e.target.value)}}
           />
           <FormHelperText>
             Brief description for your profile. URLs are hyperlinked.
@@ -328,14 +296,14 @@ const Form3 = () => {
           <FormLabel htmlFor="first-name" fontWeight={'normal'}>
             College Name
           </FormLabel>
-          <Input id="first-name" placeholder="First name" />
+          <Input id="first-name" placeholder="college name.." onChange={(e)=>{setCollege(e.target.value)}}/>
         </FormControl>
 
         <FormControl>
           <FormLabel htmlFor="last-name" fontWeight={'normal'}>
             Phone no
           </FormLabel>
-          <Input id="last-name" placeholder="First name" />
+          <Input id="last-name" placeholder="phone no.." onChange={(e)=>{setPhone(e.target.value)}}/>
         </FormControl>
       </Flex>
       </SimpleGrid>
