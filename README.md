@@ -63,6 +63,14 @@ Organizers can efficiently plan, organize, and run successful hackathons with co
 ### Login Page
 <img src="https://user-images.githubusercontent.com/113037145/226191277-78ee1382-e3c9-4ad9-bdde-f68828a9e83a.png" >
 
+### Home Page
+![image](https://user-images.githubusercontent.com/113037145/226203524-ae4ba59d-60dc-44d4-bc05-898ce16ac360.png)
+![Screenshot (997)](https://user-images.githubusercontent.com/113037145/226203615-d8149ef7-69d5-4c6a-9e5a-ceb2de9d49a9.png)
+
+![image](https://user-images.githubusercontent.com/113037145/226203571-9bc3a318-28bc-44da-8a39-68708dabf3dd.png)
+![image](https://user-images.githubusercontent.com/113037145/226203590-7a7df6bc-4b45-44ce-ad41-bdf33bf6865e.png)
+
+
 ## Organizer Side
 
 ### Creating new Hackathon Event
