@@ -5,7 +5,7 @@ This is a hackathon management system developed for Sellular Hackathon
 
 ## Organiser Side
 
-### Creating new Hcackathon Event
+### Creating new Hackathon Event
 <img src="https://user-images.githubusercontent.com/113037145/226190117-7c7e0e05-04e7-4158-8514-462d316567da.png" width="650" height="400">
 
 
