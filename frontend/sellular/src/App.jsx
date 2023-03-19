@@ -20,6 +20,7 @@ import CreateTeampost from './components/CreateTeampost';
 import Hackathons from './pages/Hackathons';
 import MyHackathons from './pages/MyHackathons';
 import ViewProfile from './pages/ViewProfile';
+import ViewHackathon from './pages/viewHackathon';
 function App() {
 
   return (
@@ -36,6 +37,8 @@ function App() {
         <Route path='hackathons' element={<Hackathons />} />
         <Route path='myHackathons' element={<MyHackathons />} />
         <Route path='profile' element={<ViewProfile />} />
+        <Route path='event/:id' element={<ViewThread />} />
+        <Route path='hackathon/:id' element={<ViewHackathon />} />
 
       </Route>
       <Route path='timeline' element={<TimeLine />} />

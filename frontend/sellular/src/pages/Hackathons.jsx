@@ -3,22 +3,29 @@ import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import Hackathon from '../components/Hacakthon';
 import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
+import { useJwt } from "react-jwt";
+
 
 const Hackathons = () => {
     const hackathons = useRef();
     const [isLoading,setLoading] = useState(false);
+    const {decodedToken} = useJwt(localStorage.getItem('jwt'))
+    const [rerender, setRerender] = useState(false);
     const getHackathons = async()=>{
         setLoading(true)
         return await axios.get('https://asadparkar.tech/devconnectb/api/event/events');
     }
 
     useEffect(()=>{
+        if (!decodedToken){
+            setRerender(!rerender)
+            return
+        }
         getHackathons().then((response)=>{
         hackathons.current = response.data.events
         setLoading(false)
-        console.log(hackathons)
         });
-    },[])
+    },[rerender])
   return (
     <Box padding={{base:1,sm:15}} bg='#F5F7F7' fontFamily={'Poppins'}>
       <Box display={'flex'}>
@@ -44,7 +51,7 @@ const Hackathons = () => {
         <Box display={'flex'} justifyContent='center' flexDirection={'column'}>
         {hackathons.current?.map((item)=>(
           <Box marginTop={'15px'}>
-            <Hackathon event_name={item.event_name} status={item.event_status} event_theme={item.event_theme} mode={item.event_mode} applicants={item.event_applications.length+1}  />
+            <Hackathon event_name={item.event_name} status={item.event_status} event_theme={item.event_theme} mode={item.event_mode} applicants={item.event_applications.length+1} my={item.organizer === decodedToken.user_id?true:false} id={item._id}/>
           </Box>
         ))}
         </Box>
