@@ -80,10 +80,10 @@ import {
           </VStack>
           <VStack w="100%">
             <Button
-              bg="green.300"
+              bg="purple.300"
               color="white"
               _hover={{
-                bg: 'green.500'
+                bg: 'purple.500'
               }}
               rounded="md"
               w={{ base: '100%', md: 'max-content' }}

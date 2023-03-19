@@ -1,92 +1,103 @@
-import { StepForm, FormStepper, NextButton,FormStep,PrevButton } from "@saas-ui/forms"
-import { FormLayout } from "@saas-ui/forms"
-import {PropertyList, Property} from "@saas-ui/react"
-import { Field } from "@saas-ui/forms"
-import { Spacer } from "@chakra-ui/react"
-import { Text } from "@chakra-ui/react"
-import { ButtonGroup } from "@chakra-ui/react"
-import { StepperCompleted } from "@saas-ui/react"
-import { FormValue } from "@saas-ui/forms"
+import {
+  Container,
+  Box,
+  Heading,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Select, Textarea,VStack,Stack,Button, useColorModeValue,
+} from '@chakra-ui/react';
 
-function CreateEvent() {
-    // const schemas = {
-    //     project: Yup.object().shape({
-    //       name: Yup.string()
-    //         .required()
-    //         .label("Name"),
-    //       description: Yup.string().label("Description")
-    //     }),
-    //     members: Yup.object().shape({
-    //       members: Yup.string().label("Members")
-    //     })
-    //   }
-    
-      const onSubmit = params => {
-        console.log(params)
-        return new Promise(resolve => {
-          setTimeout(resolve, 1000)
-        })
-      }
-    
-      return (
-        <StepForm
-          defaultValues={{
-            name: "",
-            email: "",
-            password: ""
-          }}
-          onSubmit={onSubmit}
-        >
-          <FormLayout>
-            <FormStepper>
-              <FormStep
-                name="project"
-                title="Project details"
-              >
-                <FormLayout>
-                  <Field name="name" isRequired label="Name" />
-                  <Field name="description" label="Description" />
-                </FormLayout>
-              </FormStep>
-              <FormStep
-                name="members"
-                title="Invite your team"
-              >
-                <FormLayout>
-                  <Field
-                    name="members"
-                    type="textarea"
-                    label="Invite people"
-                    placeholder="hello@saas-ui.dev, etc"
-                    autoFocus
-                  />
-                </FormLayout>
-              </FormStep>
-              <FormStep name="confirm" title="Confirm">
-                <FormLayout>
-                  <Text>Please confirm that your information is correct.</Text>
-                  <PropertyList>
-                    <Property label="Name" value={<FormValue name="name" />} />
-                    <Property
-                      label="Description"
-                      value={<FormValue name="description" />}
-                    />
-                  </PropertyList>
-                </FormLayout>
-              </FormStep>
-    
-              <StepperCompleted>
-                <Loader>We are setting up your project, just a moment...</Loader>
-              </StepperCompleted>
-            </FormStepper>
-            <ButtonGroup w="full">
-              <PrevButton variant="ghost" />
-              <Spacer />
-              <NextButton />
-            </ButtonGroup>
-          </FormLayout>
-        </StepForm>
-      )
-  }
+const CreateTEvent = () => {
 
-  export default CreateEvent
+  return (
+    <Container maxW="5xl" p={{ base: 5, md: 10 }}>
+      <Heading as="h3" size="lg" mb="4" fontWeight="bold" textAlign="left">
+        Create an event !
+      </Heading>
+      <VStack
+        as="form"
+        spacing={8}
+        w="100%"
+        bg={useColorModeValue('gray.50')}
+        rounded="lg"
+        boxShadow="lg"
+        p={{ base: 5, sm: 10 }}
+      >
+      <VStack spacing={4} w="100%">
+          <Stack w="100%" spacing={3} direction={{ base: 'column', md: 'row' }}>
+            <FormControl id="name">
+              <FormLabel>Event Name</FormLabel>
+              <Input type="text" placeholder="contest title" rounded="md" />
+            </FormControl>
+            <FormControl id="location">
+              <FormLabel>Event Location</FormLabel>
+              <Input type="text" placeholder="where is it taking place?" rounded="md" />
+            </FormControl>
+          </Stack>
+          <FormControl id="subject">
+            <FormLabel>Event Theme</FormLabel>
+            <Input type="text" placeholder="what's it about?" rounded="md" />
+          </FormControl>
+          <FormControl id="description">
+            <FormLabel>description</FormLabel>
+            <Textarea size="lg" placeholder="Enter details" rounded="md" />
+          </FormControl>
+          <FormControl>
+          <FormLabel fontSize="0.75rem" fontWeight="bold">
+            Event Timeline
+          </FormLabel>
+          <Stack w="100%" spacing={3} direction={{ base: 'column', md: 'row' }}>
+            <FormControl id="r-start">
+              <FormLabel>registration start </FormLabel>
+              <Input type="text" placeholder=".." rounded="md" />
+            </FormControl>
+            <FormControl id="r-end">
+              <FormLabel>registration end </FormLabel>
+              <Input type="text" placeholder=".." rounded="md" />
+            </FormControl>
+            <FormControl id="h-start">
+              <FormLabel>hackathon start </FormLabel>
+              <Input type="text" placeholder=".." rounded="md" />
+            </FormControl>
+            <FormControl id="h-end">
+              <FormLabel>hackathon end </FormLabel>
+              <Input type="text" placeholder=".." rounded="md" />
+            </FormControl>
+          </Stack>
+        </FormControl>
+          <FormControl>
+          <FormLabel fontSize="0.75rem" fontWeight="bold">
+            MODE
+          </FormLabel>
+          <Select>
+            <option value="online">online</option>
+            <option value="offline">offline</option>
+            <option value="hybrid">hybrid</option>
+          </Select>
+        </FormControl>
+        <FormControl id="prize">
+            <FormLabel>Event prize</FormLabel>
+            <Input type="text" placeholder="what's the prize?" rounded="md" />
+          </FormControl>
+        </VStack>
+        <VStack w="100%">
+          <Button
+            bg="purple.300"
+            color="white"
+            _hover={{
+              bg: 'purple.500'
+            }}
+            rounded="md"
+            w={{ base: '100%', md: 'max-content' }}
+          >
+            Submit
+          </Button>
+        </VStack>
+      </VStack>
+    </Container>
+  );
+};
+
+export default CreateTEvent;
