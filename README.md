@@ -3,13 +3,22 @@ This is a hackathon management system developed for Sellular Hackathon
 
 ## How to start the website
 
-1. Go to Los_coders_hermanos_Hackdays-Sellular\frontend\sellular folder and Open in Terminal.
-
-2. Run the following commands :
-
-     npm install vite
-  
-     npm run dev
+### Frontend
+    
+    *vite needed (npm install vite)
+    
+    1. cd frontend
+    2. cd sellular
+    3. npm install
+    4. npm run dev
+    
+ ### Backend
+ 
+    *node.js required
+    
+    1. cd backend
+    2. npm install
+    3. npm run dev
   
 
 ## Organiser Side
