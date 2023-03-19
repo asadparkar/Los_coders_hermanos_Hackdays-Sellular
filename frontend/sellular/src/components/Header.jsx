@@ -42,6 +42,7 @@ import {Link as Linktwo} from "react-router-dom";
             localStorage.removeItem('jwt');
             navigate('/')
         }
+        const token = localStorage.getItem('jwt')
     return (
     <Box
     py="2"
@@ -70,6 +71,7 @@ import {Link as Linktwo} from "react-router-dom";
     />
     </Linktwo>
     <Spacer />
+        {token && <Box>
     <HStack spacing={3}>
     <Linktwo to="/home/createevent">
     <Button
@@ -145,6 +147,7 @@ import {Link as Linktwo} from "react-router-dom";
     </MenuList>
     </Menu>
     </HStack>
+        </Box>}
     </HStack>
     </Container>
     </Box>
