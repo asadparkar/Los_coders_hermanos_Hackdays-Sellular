@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Hackathon from '../components/Hacakthon';
 import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 import { useJwt } from "react-jwt";
+import NoEvents from '../components/NoEvents';
 
 const MyHackathons = () => {
     const hackathons = useRef();
@@ -56,7 +57,7 @@ const MyHackathons = () => {
           <Box marginTop={'15px'}>
             <Hackathon event_name={item.event_name} status={item.event_status} event_theme={item.event_theme} mode={item.event_mode} applicants={item.event_applications.length+1} my={true}/>
           </Box>
-        )):<Text>You dont have any Posted Hackathons</Text>} 
+        )):<NoEvents />} 
         </Box>
     </Box>
   )

@@ -84,7 +84,7 @@ export default function Sidebar() {
                 <NavItem navSize={navSize} icon={FiSend} title="Applications" active={active==4?true:false} />
                 </Box>
                 <Box w={'100%'} onClick={()=>{setActive(5);navigate('/home/myHackathons')}}>
-                <NavItem navSize={navSize} icon={FiPackage} title="My Hackathons" active={active==5?true:false} />
+                <NavItem navSize={navSize} icon={FiPackage} title="My Events" active={active==5?true:false} />
                 </Box>
                 <Box w={'100%'} onClick={()=>{setActive(6);navigate('/home/myAppliedHackathons')}}>
                 <NavItem navSize={navSize} icon={FiGitlab} title="Applied Hackathons" active={active==6?true:false} />
