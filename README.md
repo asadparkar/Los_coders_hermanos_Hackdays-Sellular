@@ -56,6 +56,7 @@ Organizers can efficiently plan, organize, and run successful hackathons with co
 ## Creating an account
 
 ### SignupPage
+*multi step sign up and profile filling pagw
 <img src="https://user-images.githubusercontent.com/113037145/226191167-9f35b71e-6668-4acb-a888-a549cc49ec1b.png" >
 <img src="https://user-images.githubusercontent.com/113037145/226191172-e9e67f9c-3612-4d5a-8fb0-52b85e6abc78.png" >
 <img src="https://user-images.githubusercontent.com/113037145/226191177-1290504b-c667-4d1c-ad70-642ef2b4445a.png" >
