@@ -13,6 +13,24 @@ Participants can also apply for certain position and the developer who wishes to
 
 Organizers can efficiently plan, organize, and run successful hackathons with comprehensive management tools and support.
 
+## TECH stack used 
+This is a complete MERN stack project, which is one of the most popular and in-demand ways of creating a web app
+Frontend:
+•	 React.js
+•	 Tailwind CSS
+•	 Chakra UI
+•	 Axios
+•	 Redux 
+Backend:
+•	node.js
+•	express.js
+•	mongoose ( MongoDB)
+•	Express router
+•	Tools:
+•	Figma
+•	Postman
+•	Git
+
 
 
 ## How to start the website
