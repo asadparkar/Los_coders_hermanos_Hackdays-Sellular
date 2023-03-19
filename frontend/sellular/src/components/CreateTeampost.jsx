@@ -8,8 +8,18 @@ import {
     Input,
     Select, Textarea,VStack,Stack,Button, useColorModeValue,
   } from '@chakra-ui/react';
-
+  import { useState } from 'react';
   const CreateTeampost = () => {
+    const [title,setTitle] = useState('');
+    const [domain,setDomain] = useState('');
+    const [statement,setStatement] = useState('');
+    const [description,setDescription] = useState('');
+    const [Responsibilities,setResponsibilities] = useState('');
+    const [roleone,setRoleone] = useState('');
+    const [roletwo,setRoletwo] = useState('');
+    const [location,setLocation] = useState('');
+    const [mode,setMode] = useState('');
+
 
     return (
       <Container maxW="5xl" p={{ base: 5, md: 10 }}>
@@ -29,20 +39,20 @@ import {
             <Stack w="100%" spacing={3} direction={{ base: 'column', md: 'row' }}>
               <FormControl id="name">
                 <FormLabel>Title</FormLabel>
-                <Input type="text" placeholder="contest title" rounded="md" />
+                <Input type="text" placeholder="contest title" rounded="md" onChange={(e)=>{setTitle(e.target.value)}}/>
               </FormControl>
               <FormControl id="name">
                 <FormLabel>Domain</FormLabel>
-                <Input type="text" placeholder="which field?" rounded="md" />
+                <Input type="text" placeholder="which field?" rounded="md" onChange={(e)=>{setDomain(e.target.value)}} />
               </FormControl>
             </Stack>
             <FormControl id="subject">
               <FormLabel>Problem Statement</FormLabel>
-              <Input type="text" placeholder="what's it about?" rounded="md" />
+              <Input type="text" placeholder="what's it about?" rounded="md" onChange={(e)=>{setStatement(e.target.value)}}/>
             </FormControl>
             <FormControl id="description">
               <FormLabel>description</FormLabel>
-              <Textarea size="lg" placeholder="Enter details" rounded="md" />
+              <Textarea size="lg" placeholder="Enter details" rounded="md" onChange={(e)=>{setDescription(e.target.value)}}/>
             </FormControl>
             <FormControl>
             <FormLabel fontSize="0.75rem" fontWeight="bold">
@@ -51,22 +61,22 @@ import {
             <Stack w="100%" spacing={3} direction={{ base: 'column', md: 'row' }}>
               <FormControl id="name">
                 <FormLabel></FormLabel>
-                <Input type="text" placeholder=".." rounded="md" />
+                <Input type="text" placeholder=".." rounded="md" onChange={(e)=>{setRoleone(e.target.value)}} />
               </FormControl>
               <FormControl id="name">
                 <FormLabel></FormLabel>
-                <Input type="text" placeholder=".." rounded="md" />
+                <Input type="text" placeholder=".." rounded="md" onChange={(e)=>{setRoletwo(e.target.value)}}/>
               </FormControl>
             </Stack>
           </FormControl>
           <FormControl id="description">
               <FormLabel>Responsibilities</FormLabel>
-              <Textarea size="lg" placeholder="Enter details" rounded="md" />
+              <Textarea size="lg" placeholder="Enter details" rounded="md" onChange={(e)=>{setResponsibilities(e.target.value)}}/>
             </FormControl>
             <FormControl>
             <FormControl id="name">
                 <FormLabel>Location</FormLabel>
-                <Input type="text" placeholder="where is it taking place?" rounded="md" />
+                <Input type="text" placeholder="where is it taking place?" rounded="md" onChange={(e)=>{setLocation(e.target.value)}}/>
               </FormControl>
             <FormLabel fontSize="0.75rem" fontWeight="bold">
               MODE

@@ -221,7 +221,7 @@ const Form3 = () => {
               placeholder="www.example.com"
               focusBorderColor="brand.400"
               rounded="md"
-              onChange={(e)=>{setGithub(e.target.value)}}
+              onChange={(e)=>{setGitHub(e.target.value)}}
             />
           </InputGroup>
         </FormControl>
