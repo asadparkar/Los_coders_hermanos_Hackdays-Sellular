@@ -143,7 +143,7 @@ The password has been encrypted.
 
 
 
-## How much we were able to implement in 2 days
+
 
 
 
