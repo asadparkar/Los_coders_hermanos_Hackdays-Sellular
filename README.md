@@ -2,7 +2,7 @@
 This is a hackathon management system developed for Sellular Hackathon
 
 
-## Initial Plan
+## Plan
 Create a website that would allow organizers to create events, set up teams, and manage registrations.
 
 It would also allow participants to register for events, join teams, and submit their projects for judging.
