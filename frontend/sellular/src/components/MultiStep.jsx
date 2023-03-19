@@ -21,24 +21,22 @@ import {
 import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
 
-const [name,setName] = useState('');
+const Form1 = () => {
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
+  const [name,setName] = useState('');
 const [lastname,setLastName] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [skillone,setSetSkillOne] = useState('');
-    const [skilltwo,setSetSkillTwo] = useState('');
-    const [github,setGitHub] = useState('');
-    const [resume,setResume] = useState('');
-    const [college,setCollege] = useState('');
-    const [phone,setPhone] = useState('');
-    const [linkedin,setLinkedin] = useState('');
-    const [bio,setBio] = useState('');
+
 
     const [loading,setLoading] = useState(false)
     //FOR ERROR HANDLING
     const [error_message,setErrorMessage] = useState('');
     const [isError,setError] = useState(false)
-  
+
+
+
     const handleSubmit = ()=>{
       if (!name || !email || !password){
         setError(true);
@@ -58,10 +56,6 @@ const [lastname,setLastName] = useState('');
         setLoading(false);
       })
     }
-
-const Form1 = () => {
-  const [show, setShow] = React.useState(false);
-  const handleClick = () => setShow(!show);
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="bold" mb="2%">
@@ -113,6 +107,15 @@ const Form1 = () => {
 };
 
 const Form2 = () => {
+  const [skillone,setSetSkillOne] = useState('');
+    const [skilltwo,setSetSkillTwo] = useState('');
+
+    const [loading,setLoading] = useState(false)
+    //FOR ERROR HANDLING
+    const [error_message,setErrorMessage] = useState('');
+    const [isError,setError] = useState(false)
+
+
   return (
     <>
       <Heading w="100%" textAlign={'center'} mb="2%" fontWeight="bold">
@@ -174,6 +177,19 @@ const Form2 = () => {
 };
 
 const Form3 = () => {
+  const [github,setGitHub] = useState('');
+  const [resume,setResume] = useState('');
+  const [college,setCollege] = useState('');
+  const [phone,setPhone] = useState('');
+  const [linkedin,setLinkedin] = useState('');
+  const [bio,setBio] = useState('');
+
+  const [loading,setLoading] = useState(false)
+    //FOR ERROR HANDLING
+    const [error_message,setErrorMessage] = useState('');
+    const [isError,setError] = useState(false)
+
+
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="bold">
