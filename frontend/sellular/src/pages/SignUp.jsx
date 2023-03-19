@@ -177,7 +177,7 @@ import {
             </Stack>
             <Box as={'form'} mt={10}>
               <Stack spacing={4}>
-              <FormControl isRequired>
+              {/* <FormControl isRequired>
               <FormLabel>Username</FormLabel>
                 <Input
                   placeholder="Firstname"
@@ -219,7 +219,7 @@ import {
                     color: 'gray.500',
                   }}
                 /> 
-              </FormControl>
+              </FormControl> */}
   
                       {isError &&
                           <Alert status='error'>

@@ -20,6 +20,7 @@ import CreateTeampost from './components/CreateTeampost';
 import Hackathons from './pages/Hackathons';
 import MyHackathons from './pages/MyHackathons';
 import ViewProfile from './pages/ViewProfile';
+import MultiStep from './components/MultiStep';
 function App() {
 
   return (
@@ -33,12 +34,14 @@ function App() {
         <Route path='thread/:id' element={<ViewThread />} />
         <Route path='thread/apply/:id' element={<Apply />} />
         <Route path='create' element={<CreateTeampost />} />
+        <Route path='createevent' element={<CreateEvent />} />
         <Route path='hackathons' element={<Hackathons />} />
         <Route path='myHackathons' element={<MyHackathons />} />
         <Route path='profile' element={<ViewProfile />} />
 
       </Route>
       <Route path='timeline' element={<TimeLine />} />
+      <Route path='registertwo' element={<MultiStep />} />
       <Route path='register' element={<SignUp />} />
       <Route path='*' element={<NotFound />}/>
     </Routes>
