@@ -1,7 +1,16 @@
 # Los_coders_hermanos_Hackdays-Sellular
 This is a hackathon management system developed for Sellular Hackathon
 
+## How to start the website
 
+1. Go to Los_coders_hermanos_Hackdays-Sellular\frontend\sellular folder and Open in Terminal.
+
+2. Run the following commands :
+
+     npm install vite
+  
+     npm run dev
+  
 
 ## Organiser Side
 
@@ -30,5 +39,31 @@ This is a hackathon management system developed for Sellular Hackathon
 
 ### Find team members
 <img src="https://user-images.githubusercontent.com/113037145/226191519-6e025f57-f3a6-4b69-b5f0-bbe012ec6ecf.png" width="650" height="400">
+
+## Database
+
+### Security
+
+The password has been encrypted.
+
+<img src="https://user-images.githubusercontent.com/113037145/226197804-386430a2-d9aa-4406-999f-0e8b26075cc8.png" width="650" height="400">
+
+### Database for creating an event
+
+<img src="https://user-images.githubusercontent.com/113037145/226197905-58447ede-ea44-4aa6-a4fe-16fd83d0c092.png" width="650" height="400">
+
+### Applicants Database for the Hackathon
+
+<img src="https://user-images.githubusercontent.com/113037145/226198095-d165062d-2152-48cc-beac-ce41a2cb9d3d.png" width="650" height="400">
+
+### Applicant Database
+
+<img src="https://user-images.githubusercontent.com/113037145/226198012-a7218d94-3695-4988-8738-058bdae613a4.png" width="650" height="400">
+
+
+
+
+
+
 
 
