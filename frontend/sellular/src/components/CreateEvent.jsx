@@ -10,10 +10,14 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { decodeToken } from "react-jwt";
+
 
 
 
 const CreateTEvent = () => {
+    const token = localStorage.getItem('jwt')
+    const decodedToken = decodeToken(token);
     const [event_name,setEventName] = useState('')
     const [event_location,setEventLocation] = useState('')
     const [event_theme,setEventTheme] = useState('')
@@ -24,25 +28,34 @@ const CreateTEvent = () => {
     const [event_timeline4,setTimeline4] = useState('')
     const [event_mode,setEventMode] = useState('')
     const [event_prize,setEventPrize] = useState('')
-
+    const [Thumbnail,setThumbnail] = useState('')
+    const [render,setRedner] = useState(false)
     const postEvent = (async()=>{
       return await axios.post('https://asadparkar.tech/devconnectb/api/event/create',{
         event_name:event_name,
-        event_location:event_location;
-        event_img:"img here",
-        event_mode:"Hybrid",
-        event_theme:"Blockchain",
-        description:"This is the desc",
-        event_prize:"1 lakh",
-        event_timeline:["test"],
+        event_location:event_location,
+        event_img:Thumbnail,
+        event_mode:event_mode,
+        event_theme:event_theme,
+        description:event_description,
+        event_prize:event_prize,
+        event_timeline:[event_timeline1,event_timeline2,event_timeline3,event_timeline4],
         event_status:"open",
-        organizer:"6403a761a0c0609c0039cb9a"
+        organizer:decodeToken(localStorage.getItem('jwt')).user_id
       })
     })
+    const handleClick = (()=>{
+      postEvent().then((response)=>{
+        alert("Hackathon has been Posted!")
+      }).catch((err)=>console.log(err))
+    })
 
-    useEffect(()=>{
+    // useEffect(()=>{
+    //   if (!decodedToken){
+    //     setRedner(!render)
+    //   }
+    // },[render])
 
-    },[])
   return (
 
     <Container maxW="5xl" p={{ base: 5, md: 10 }}>
@@ -68,14 +81,19 @@ const CreateTEvent = () => {
               <FormLabel>Event Location</FormLabel>
               <Input onChange={(e)=>{setEventLocation(e.target.value)}} type="text" placeholder="where is it taking place?" rounded="md" />
             </FormControl>
+
           </Stack>
           <FormControl id="subject">
             <FormLabel>Event Theme</FormLabel>
-            <Input onChange={(e)=>{setEventLocation(e.target.value)}} type="text" placeholder="what's it about?" rounded="md" />
+            <Input onChange={(e)=>{setEventTheme(e.target.value)}} type="text" placeholder="what's it about?" rounded="md" />
+          </FormControl>
+          <FormControl id="subject">
+            <FormLabel>Thumbnail Link</FormLabel>
+            <Input onChange={(e)=>{setThumbnail(e.target.value)}} type="text" placeholder="Thumbnail/Banner Link" rounded="md" />
           </FormControl>
           <FormControl id="description">
             <FormLabel>description</FormLabel>
-            <Textarea onChange={(e)=>{setEventdesc(e.target.value);console.log(event_description)}} size="lg" placeholder="Enter details" rounded="md" />
+            <Textarea onChange={(e)=>{setEventdesc(e.target.value)}} size="lg" placeholder="Enter details" rounded="md" />
           </FormControl>
           <FormControl>
           <FormLabel fontSize="0.75rem" fontWeight="bold">
@@ -96,7 +114,7 @@ const CreateTEvent = () => {
             </FormControl>
             <FormControl id="h-end">
               <FormLabel>hackathon end </FormLabel>
-              <Input onChange={(e)=>{setTimeline3(e.target.value)}} type="text" placeholder=".." rounded="md" />
+              <Input onChange={(e)=>{setTimeline4(e.target.value)}} type="text" placeholder=".." rounded="md" />
             </FormControl>
           </Stack>
         </FormControl>
@@ -117,6 +135,7 @@ const CreateTEvent = () => {
         </VStack>
         <VStack w="100%">
           <Button
+          onClick={(e)=>{e.preventDefault; handleClick()}}
             bg="purple.300"
             color="white"
             _hover={{

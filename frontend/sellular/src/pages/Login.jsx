@@ -21,6 +21,7 @@ import { Logo } from '../components/Logo'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import {Link} from "react-router-dom";
+import { decodeToken } from "react-jwt";
 
 
 export const Login = () => {
@@ -59,7 +60,7 @@ export const Login = () => {
     })
     setLoading(true);
 
-    signIn().then((response)=>{
+    signIn().then(async(response)=>{
       localStorage.setItem("jwt",response.data.token)
       setLoading(false)
       navigate('/home')
