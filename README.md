@@ -78,6 +78,9 @@ Once the user posts the hackathon event, the user can explore it in the Hackatho
 Organisers can reject or accept applications.
 
 
+<img src="https://user-images.githubusercontent.com/113037145/226200610-6cd77921-2771-4b64-9fa3-e7dff9004215.png" width="650" height="400">
+
+
 ## Participant Side
 
 
@@ -88,6 +91,10 @@ Organisers can reject or accept applications.
 <img src="https://user-images.githubusercontent.com/113037145/226191458-ff427698-796f-4522-90bc-fedc05bcfd92.png" width="650" height="400">
 
 Application is sent to the organizer.
+
+
+
+User can also view their status for the ongoing application.
 
 ### Find team members
 <img src="https://user-images.githubusercontent.com/113037145/226191519-6e025f57-f3a6-4b69-b5f0-bbe012ec6ecf.png" width="650" height="400">
