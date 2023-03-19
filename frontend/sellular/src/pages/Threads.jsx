@@ -72,7 +72,7 @@ const Threads = () => {
         
         {isThreadOpen && threads?.current?.filter(threads=>threads.status.includes('open')).map((item)=>(
           <Box marginTop={'15px'}>
-            <Thread title={item.title} status={item.status} positions={item.positions} name={item.user_id?.name} mode={item.mode} author='Asad Parkar' applicants={item.application_ids.length} id={item._id}  />
+            <Thread title={item.title} status={item.status} event_theme = {item.event_theme} mode={item.event_mode} author='Asad Parkar' applicants={item.application_ids.length} id={item._id}  />
           </Box>
         ))}
         </Box>

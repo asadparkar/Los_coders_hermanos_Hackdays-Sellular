@@ -17,7 +17,8 @@ import {
     FiBriefcase,
     FiCoffee,
     FiInbox,
-    FiSend
+    FiSend,
+    FiTarget
 } from 'react-icons/fi'
 import { IoPawOutline } from 'react-icons/io5'
 import NavItem from './NavItem'
@@ -68,8 +69,8 @@ export default function Sidebar() {
                     <NavItem navSize={navSize} icon={FiHome} title="Home"  active={active==0?true:false}/>
                 </Box>
 
-                <Box w={'100%'} onClick={()=>{setActive(1);navigate('/home/')}}>
-                <NavItem navSize={navSize} icon={FiCoffee} title="Filtered" active={active==1?true:false} />
+                <Box w={'100%'} onClick={()=>{setActive(1);navigate('/home/hackathons')}}>
+                <NavItem navSize={navSize} icon={FiTarget} title="Hackathons" active={active==1?true:false} />
                 </Box>
                 <Box w={'100%'} onClick={()=>{setActive(2);navigate('/home/findmates')}}>
                 <NavItem navSize={navSize} icon={FiUser} title="Find Members" active={active==2?true:false}  />
@@ -80,6 +81,9 @@ export default function Sidebar() {
                 <Box w={'100%'} onClick={()=>setActive(4)}>
                 <NavItem navSize={navSize} icon={FiSend} title="Applications" active={active==4?true:false} />
                 </Box>
+                {/* <Box w={'100%'} onClick={()=>setActive(5)}>
+                <NavItem navSize={navSize} icon={FiTarget} title="Registered" active={active==5?true:false} />
+                </Box> */}
             </Flex>
 
         </Flex>
