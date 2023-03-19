@@ -99,6 +99,8 @@ User can also view their status for the ongoing application.
 ### Find team members
 <img src="https://user-images.githubusercontent.com/113037145/226191519-6e025f57-f3a6-4b69-b5f0-bbe012ec6ecf.png" >
 
+User can view other peoples profile.
+
 ## Database
 
 ### Security
