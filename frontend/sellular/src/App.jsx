@@ -21,6 +21,7 @@ import Hackathons from './pages/Hackathons';
 import MyHackathons from './pages/MyHackathons';
 import ViewProfile from './pages/ViewProfile';
 import MultiStep from './components/MultiStep';
+
 function App() {
 
   return (
@@ -33,7 +34,7 @@ function App() {
         <Route path='findmates' element={<FindTeamMates />} />
         <Route path='thread/:id' element={<ViewThread />} />
         <Route path='thread/apply/:id' element={<Apply />} />
-        <Route path='create' element={<CreateTeampost />} />
+        <Route path='createpost' element={<CreateTeampost />} />
         <Route path='createevent' element={<CreateEvent />} />
         <Route path='hackathons' element={<Hackathons />} />
         <Route path='myHackathons' element={<MyHackathons />} />

@@ -128,9 +128,6 @@ import { useNavigate } from "react-router-dom"
     <Text fontWeight="500">Create Post</Text>
     </MenuItem>
     <MenuItem>
-    <Text fontWeight="500">Update Profile</Text>
-    </MenuItem>
-    <MenuItem>
     <Text fontWeight="500">Settings</Text>
     </MenuItem>
     <MenuDivider />
