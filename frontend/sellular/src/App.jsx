@@ -19,6 +19,7 @@ import CreateEvent from './components/CreateEvent';
 import CreateTeampost from './components/CreateTeampost';
 import Hackathons from './pages/Hackathons';
 import MyHackathons from './pages/MyHackathons';
+import ViewProfile from './pages/ViewProfile';
 function App() {
 
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path='create' element={<CreateTeampost />} />
         <Route path='hackathons' element={<Hackathons />} />
         <Route path='myHackathons' element={<MyHackathons />} />
+        <Route path='profile' element={<ViewProfile />} />
 
       </Route>
       <Route path='timeline' element={<TimeLine />} />
