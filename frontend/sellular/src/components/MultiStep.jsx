@@ -20,42 +20,33 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Form1 = () => {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   const [name,setName] = useState('');
-const [lastname,setLastName] = useState('');
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
+  const [lastname,setLastName] = useState('');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
 
-
-    const [loading,setLoading] = useState(false)
+  const [loading,setLoading] = useState(false)
     //FOR ERROR HANDLING
     const [error_message,setErrorMessage] = useState('');
     const [isError,setError] = useState(false)
 
-
-
-    const handleSubmit = ()=>{
-      if (!name || !email || !password){
-        setError(true);
-        setErrorMessage('Please fill all required fields!')
-        return
-      }
-      setLoading(true)
-      axios.post('https://asadparkar.tech/devconnectb/api/user/signup',{
-        name:name,
-        email:email,
-        password:password
-      }).then((response)=>{
-        setLoading(false)
-      }).catch((error)=>{
-        setError(true);
-        setErrorMessage(error.response.data.error);
-        setLoading(false);
-      })
-    }
+  const handleSave = async()=>{
+    await axios.post('https://asadparkar.tech/devconnectb/api/user/signup',{
+      name:name,
+      email:email,
+      password:password
+    }).then((response)=>{
+      localStorage.setItem('user',response.data.user._id)
+      alert("User Created Sucessfully! Click Next and fill the required details!")
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="bold" mb="2%">
@@ -100,7 +91,9 @@ const [lastname,setLastName] = useState('');
               {show ? 'Hide' : 'Show'}
             </Button>
           </InputRightElement>
+          
         </InputGroup>
+        <Button onClick={handleSave} marginTop='10px' colorScheme='blue'>Save</Button>
       </FormControl>
     </>
   );
@@ -108,14 +101,21 @@ const [lastname,setLastName] = useState('');
 
 const Form2 = () => {
   const [skillone,setSetSkillOne] = useState('');
-    const [skilltwo,setSetSkillTwo] = useState('');
+  const [skilltwo,setSetSkillTwo] = useState('');
 
     const [loading,setLoading] = useState(false)
     //FOR ERROR HANDLING
     const [error_message,setErrorMessage] = useState('');
     const [isError,setError] = useState(false)
 
-
+    const handleSave = async()=>{
+      await axios.post('https://asadparkar.tech/devconnectb/api/user/update',{
+        skills:[skillone,skilltwo],
+        user_id:localStorage.getItem('user')
+      }).then((response)=>{
+        alert("Skills saved! Click Next")
+      })
+    }
   return (
     <>
       <Heading w="100%" textAlign={'center'} mb="2%" fontWeight="bold">
@@ -171,6 +171,8 @@ const Form2 = () => {
           rounded="md"
           onChange={(e)=>{setSetSkillTwo(e.target.value)}}
         />
+        <Button onClick={handleSave} marginTop='10px' colorScheme='blue'>Save</Button>
+
       </FormControl>
     </>
   );
@@ -189,7 +191,19 @@ const Form3 = () => {
     const [error_message,setErrorMessage] = useState('');
     const [isError,setError] = useState(false)
 
-
+    const handleSave = async()=>{
+      await axios.post('https://asadparkar.tech/devconnectb/api/user/update',{
+        github:github,
+        linkedin:linkedin,
+        resume:resume,
+        bio:bio,
+        college:college,
+        phone:phone,
+        user_id:localStorage.getItem('user')
+      }).then((response)=>{
+        alert("Details Saved! Click Submit and use Login")
+      })
+    }
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="bold">
@@ -221,7 +235,7 @@ const Form3 = () => {
               placeholder="www.example.com"
               focusBorderColor="brand.400"
               rounded="md"
-              onChange={(e)=>{setGithub(e.target.value)}}
+              onChange={(e)=>{setGitHub(e.target.value)}}
             />
           </InputGroup>
         </FormControl>
@@ -321,13 +335,30 @@ const Form3 = () => {
           </FormLabel>
           <Input id="last-name" placeholder="phone no.." onChange={(e)=>{setPhone(e.target.value)}}/>
         </FormControl>
+
       </Flex>
       </SimpleGrid>
+        <Button onClick={handleSave} marginTop='10px' colorScheme='blue'>Save</Button>
     </>
   );
 };
 
 export default function MultiStep() {
+    const handleSubmit = ()=>{
+
+      // setLoading(true)
+      // axios.post('https://asadparkar.tech/devconnectb/api/user/signup',{
+      //   name:name,
+      //   email:email,
+      //   password:password
+      // }).then((response)=>{
+      //   setLoading(false)
+      // }).catch((error)=>{
+      //   setError(true);
+      //   setErrorMessage(error.response.data.error);
+      //   setLoading(false);
+      // })
+    }
   const toast = useToast();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(33.33);
@@ -380,21 +411,25 @@ export default function MultiStep() {
               </Button>
             </Flex>
             {step === 3 ? (
-              <Button
-                w="7rem"
-                colorScheme="red"
-                variant="solid"
-                onClick={() => {
-                  toast({
-                    title: 'Account created.',
-                    description: "We've created your account for you.",
-                    status: 'success',
-                    duration: 3000,
-                    isClosable: true,
-                  });
-                }}>
-                Submit
-              </Button>
+              <Link to='/home'>
+                <Button
+                  w="7rem"
+                  colorScheme="red"
+                  variant="solid"
+                  // onClick={() => {
+                  //   toast({
+                  //     title: 'Account created.',
+                  //     description: "We've created your account for you.",
+                  //     status: 'success',
+                  //     duration: 3000,
+                  //     isClosable: true,
+                  //   });
+                  // }}
+                  >
+                  Submit
+                </Button>
+              </Link>
+
             ) : null}
           </Flex>
         </ButtonGroup>
