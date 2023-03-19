@@ -63,7 +63,7 @@ Organizers can efficiently plan, organize, and run successful hackathons with co
 ### Login Page
 <img src="https://user-images.githubusercontent.com/113037145/226191277-78ee1382-e3c9-4ad9-bdde-f68828a9e83a.png" width="650" height="400">
 
-## Organiser Side
+## Organizer Side
 
 ### Creating new Hackathon Event
 <img src="https://user-images.githubusercontent.com/113037145/226190117-7c7e0e05-04e7-4158-8514-462d316567da.png" width="650" height="400">
@@ -86,6 +86,8 @@ Organisers can reject or accept applications.
 <img src="https://user-images.githubusercontent.com/113037145/226191392-8110d325-9141-4b4f-81fb-bed29a14b1f2.png" width="650" height="400">
 <img src="https://user-images.githubusercontent.com/113037145/226191454-79b9af38-af20-45f5-8d96-a18a7e4a819e.png" width="650" height="400">
 <img src="https://user-images.githubusercontent.com/113037145/226191458-ff427698-796f-4522-90bc-fedc05bcfd92.png" width="650" height="400">
+
+Application is sent to the organizer.
 
 ### Find team members
 <img src="https://user-images.githubusercontent.com/113037145/226191519-6e025f57-f3a6-4b69-b5f0-bbe012ec6ecf.png" width="650" height="400">
