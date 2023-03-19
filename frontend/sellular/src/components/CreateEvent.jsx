@@ -28,7 +28,7 @@ const CreateTEvent = () => {
     const postEvent = (async()=>{
       return await axios.post('https://asadparkar.tech/devconnectb/api/event/create',{
         event_name:event_name,
-        event_location:event_location;
+        event_location:event_location,
         event_img:"img here",
         event_mode:"Hybrid",
         event_theme:"Blockchain",
